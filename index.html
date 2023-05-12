@@ -1,0 +1,218 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>دستیار هزینه های من</title>
+	<link rel="stylesheet" href="https://Abolfazlee.github.io/cdn/css/bootstrap.rtl.min.css">
+	<link rel="stylesheet" href="https://Abolfazlee.github.io/cdn/css/bootstrap-icons.css">
+	<link rel="stylesheet" href="https://Abolfazlee.github.io/cdn/css/samim.css">
+	<link rel="stylesheet" href="https://Abolfazlee.github.io/cdn/css/persian-datepicker.css">
+	<link rel="stylesheet" href="themes/default/css/style.css">
+	<script src="https://Abolfazlee.github.io/cdn/js/bootstrap.min.js"></script>
+	<script src="https://Abolfazlee.github.io/cdn/js/popper.min.js"></script>
+	<script src="https://Abolfazlee.github.io/cdn/js/jquery.min.js"></script>
+	<script src="https://Abolfazlee.github.io/cdn/js/persian-date.js"></script>
+	<script src="https://Abolfazlee.github.io/cdn/js/persian-date.min.js"></script>
+	<script src="https://Abolfazlee.github.io/cdn/js/persian-datepicker.js"></script>
+	<script src="function.js"></script>
+	<script src="themes/default/js/script.js" defer></script>
+</head>
+
+
+<div id="modals">
+	<div class="modal fade" id="modal-add-note" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" style="display: none;" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="staticBackdropLabel"><div id="modaltitlen"></div></h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form id="note-form">
+						<div class="mb-3">
+							<label for="note-title" class="form-label">عنوان:</label>
+							<input type="text" class="form-control" id="note-title" name="title">
+						</div>
+						<div class="mb-3">
+							<label for="note-body" class="form-label">مبلغ:</label>
+							<input type="number" class="form-control" id="note-body" name="note">
+						</div>
+						<div class="mb-3">
+							<label for="note-date" class="form-label">تاریخ:</label>
+							<input type="text" class="form-control datepicker" id="note-date" name="date">
+						</div>
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">لغو</button>
+						<button data-bs-dismiss="modal" type="submit" class="btn btn-primary rounded-pill">ثبت</button>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="modal fade" id="modal-add-item" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" style="display: none;" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="staticBackdropLabel"><div id="modaltitlei"></div></h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form id="expense-form">
+						<div class="mb-3">
+							<label for="expense-title" class="form-label">عنوان:</label>
+							<input type="text" class="form-control" id="expense-title" name="title">
+						</div>
+						<div class="mb-3">
+							<label for="expense-body" class="form-label">مبلغ:</label>
+							<input type="number" class="form-control" id="expense-body" name="expense">
+						</div>
+						<div class="mb-3">
+							<label for="expense-date" class="form-label">تاریخ:</label>
+							<input type="text" class="form-control datepicker" id="expense-date" name="date">
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">لغو</button>
+						<button data-bs-dismiss="modal" type="submit" class="btn btn-primary rounded-pill">ثبت</button>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="modal fade" id="edit-note-modal" tabindex="-1" aria-labelledby="edit-note-modal-label" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="edit-note-modal-label">ویرایش یادداشت</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form id="edit-note-form" class="modal-body">
+					<div class="mb-3">
+						<label for="edit-note-title" class="form-label">عنوان:</label>
+						<input type="text" class="form-control" id="edit-note-title" name="title">
+					</div>
+					<div class="mb-3">
+						<label for="edit-note-body" class="form-label">مبلغ:</label>
+						<input type="number" class="form-control" id="edit-note-body" name="note">
+					</div>
+					<div class="mb-3">
+						<label for="edit-note-date" class="form-label">تاریخ:</label>
+						<input type="text" class="form-control datepicker" id="edit-note-date" name="date">
+					</div>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">لغو</button>
+			        <button type="submit" class="btn btn-primary rounded-pill">ثبت تغییرات</button>
+				</form>
+			      </div>
+				
+					
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<div class="modal fade" id="edit-expense-modal" tabindex="-1" aria-labelledby="edit-expense-modal-label" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="edit-expense-modal-label">ویرایش هزینه</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form id="edit-expense-form">
+			        <div class="mb-3">
+						<label for="edit-expense-title" class="form-label">عنوان:</label>
+						<input type="text" class="form-control" id="edit-expense-title" name="title">
+					</div>
+					<div class="mb-3">
+						<label for="edit-expense-body" class="form-label">مبلغ:</label>
+						<input type="number" class="form-control" id="edit-expense-body" name="expense">
+					</div>
+					<div class="mb-3">
+						<label for="edit-expense-date" class="form-label">تاریخ:</label>
+						<input type="text" class="form-control datepicker" id="edit-expense-date" name="date">
+					</div>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">لغو</button>
+			        <button type="submit" class="btn btn-primary rounded-pill">ثبت تغییرات</button></form>
+			      </div>
+				
+					
+					
+				
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+</div>
+
+
+<body class="bg-primary">
+
+	<div class="card col-11 col-md-8 text-center m-auto mt-3 mb-3 p-2">
+		<div class="fs-5 col-8 col-md-6 badge bg-primary m-auto mt-2 mb-2">
+			دستیار هزینه‌های من
+		</div>
+		<div id="notes" class="mb-2 mb-5">
+			<div class="border border-primary rounded">
+				یادداشت‌ها
+			</div>
+			<div class="btn btn-primary btn-sm col-8 col-md-4 rounded-pill mt-2 mb-2" data-bs-toggle="modal" data-bs-target="#modal-add-note" id="add-note">افزودن یادداشت</div>
+			<div id="note-box" class="col-11 m-auto table-responsive">
+				<table id="notes-list" class="table table-hover table-bordered table-sm text-center">
+					<thead>
+						<tr>
+							<th scope="col" class="col-3">عنوان</th>
+							<th scope="col" class="col-3">مبلغ</th>
+							<th scope="col" class="col-3">تاریخ</th>
+							<th scope="col" class="col-3">امکانات</th>
+						</tr>
+					</thead>
+					<tbody id="note-list"></tbody>
+				</table>
+			</div>
+		</div>
+		<div id="pays" class="mb-2 mb-5">
+			<div class="border border-primary rounded">
+				هزینه‌های پرداخت شده
+			</div>
+			<div class="btn btn-primary btn-sm col-8 col-md-4 rounded-pill mt-2 mb-2" data-bs-toggle="modal" data-bs-target="#modal-add-item" id="add-item">افزودن هزینه</div>
+			<div class="table-responsive col-11 m-auto">
+				<table id="expenses-list" class="table table-hover table-bordered mt-2 table-sm text-center">
+					<thead>
+						<tr>
+							<th scope="col" class="col-3">عنوان</th>
+							<th scope="col" class="col-3">مبلغ</th>
+							<th scope="col" class="col-3">تاریخ</th>
+							<th scope="col" class="col-3">امکانات</th>
+						</tr>
+					</thead>
+					<tbody id="expense-list"></tbody>
+				</table>
+			</div>
+				<div class="col-11 m-auto border border-secondary border-opacity-25 rounded-0 d-flex">
+                    <div class="border border-secondary border-opacity-25 rounded-0 border-top-0 border-bottom-0 w-50 p-2">مبلغ کل</div>
+                    <div class="p-2" id="totalPlace"></div>
+                </div>
+		</div>
+		<div class="text-muted mt-auto">طراحی شده توسط ابوالفضل رحمتی &copy;</div>
+	</div>
+</body>
+</html>
