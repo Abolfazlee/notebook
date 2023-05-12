@@ -95,19 +95,19 @@ function number_format(x) {
 
 
 
-let options = { year: 'numeric', month: 'long', day: 'numeric' };
+let options = { year: 'numeric', month: 'numeric', day: 'numeric' };
 let today = new Date().toLocaleDateString('fa-IR', options);
 let totalExpense = 0;
 
 $(document).ready(() => {
       // Initialize notes and expenses in localStorage if not already set
       if (!localStorage.getItem('notes')) {
-        const initialNotes = [{ title: 'تست یادداشت 1', note: 'تست مبلغ 1', date: `${today}` }, { title: 'تست یاداشت 2', note: 'تست مبلغ 2', date: `${today}` }];
+        const initialNotes = [{ title: 'تست یادداشت 1', note: 1000000, date: `${today}` }, { title: 'تست یاداشت 2', note: 1000000, date: `${today}` }];
         localStorage.setItem('notes', JSON.stringify(initialNotes));
       }
 
       if (!localStorage.getItem('expenses')) {
-        const initialExpenses = [{ title: 'تست هزینه 1', expense: 100, date: `${today}` }, { title: 'تست هزینه 2', expense: 200, date: `${today}` }];
+        const initialExpenses = [{ title: 'تست هزینه 1', expense: 1000000, date: `${today}` }, { title: 'تست هزینه 2', expense: 1000000, date: `${today}` }];
         localStorage.setItem('expenses', JSON.stringify(initialExpenses));
       }
 
@@ -254,7 +254,7 @@ if(!inputNoteArr.Notedate) error.push('تاریخ');
           notesHtml += `
             <tr>
               <td>${noteObj.title}</td>
-              <td>${number_format(pToe(noteObj.note))} تومان</td>
+              <td>${number_format(noteObj.note)} تومان</td>
               <td>${noteObj.date}</td>
               <td>
               <div class="d-flex justify-content-center col-3 m-auto">
@@ -274,7 +274,7 @@ if(!inputNoteArr.Notedate) error.push('تاریخ');
           expensesHtml += `
             <tr>
               <td>${expenseObj.title}</td>
-              <td>${number_format(pToe(expenseObj.expense))} تومان</td>
+              <td>${number_format(expenseObj.expense)} تومان</td>
               <td>${expenseObj.date}</td>
               <td>
               <div class="d-flex justify-content-center col-3 m-auto">
@@ -284,38 +284,10 @@ if(!inputNoteArr.Notedate) error.push('تاریخ');
               </td>
             </tr>
           `;
-          totalExpense += parseInt(pToe(expenseObj.expense));
+          totalExpense += parseInt(expenseObj.expense);
         });
         $('#expense-list').html(expensesHtml);
         $('#totalPlace').html(`${number_format(totalExpense)} تومان`);
       }
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 });
